@@ -1,1 +1,6 @@
 <h1>Stuff</h1>
+
+<% if can? :read, Book %>
+	<%= link_to "List of Books", books_path %> | <%= link_to "Create A New Book", new_book_path %>  
+<% end %>
+
