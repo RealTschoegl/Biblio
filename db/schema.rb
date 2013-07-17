@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(:version => 20130717200748) do
 
   create_table "books", :force => true do |t|
+    t.string   "picture"
     t.string   "title"
     t.string   "author"
     t.datetime "published"

@@ -28,6 +28,8 @@ gem 'devise'
 gem 'cancan'
 gem 'better_errors'
 gem 'binding_of_caller'
+gem 'bootstrap-sass', '~> 2.3.2.0'
+gem 'carrierwave'
 
 
 # To use ActiveModel has_secure_password
