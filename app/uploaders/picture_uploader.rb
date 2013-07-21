@@ -1,5 +1,4 @@
 # encoding: utf-8
-
 class PictureUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
@@ -25,11 +24,30 @@ class PictureUploader < CarrierWave::Uploader::Base
   # end
 
   # Process files as they are uploaded:
+  # version :thumb do
+  #   process :scale => [200, 300]
+  # end
+
   
-  process :scale => [200, 300]
-  #
-  # def scale(width, height)
-  #   # do something
+  
+  def scale(width, height)
+    process :scale => [200, 200]
+  end
+
+  # def resize_to_fit(width, height)
+  #   process :resize_to_fit => [200, 200]
+  # end
+
+  # def resize_to_fit(width, height)
+  #   manipulate! do |img|
+  #     img.resize_to_fit!(width, height)
+  #     img = yield(img) if block_given?
+  #     img
+  #   end
+  # end
+
+  # def resize_to_limit(width, height)
+  #   process :resize_to_limit => [200, 200]
   # end
 
   # Create different versions of your uploaded files:
