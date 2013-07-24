@@ -6,7 +6,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :author
       t.datetime :published
       t.string :isbn
-      t.reference :user
+      # t.reference :user
 
       t.timestamps
     end
