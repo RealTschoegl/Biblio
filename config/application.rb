@@ -55,7 +55,8 @@ module Biblio
 
     # Enable the asset pipeline
     config.assets.enabled = true
-    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.initialize_on_precompile = false
+    config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif '*.css' '*.js')
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
