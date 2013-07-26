@@ -34,7 +34,10 @@ gem 'better_errors'
 gem 'binding_of_caller'
 gem 'bootstrap-sass', '~> 2.3.2.0'
 gem 'carrierwave'
-
+gem 'figaro'
+gem 'goodreads'
+gem 'awesome_print'
+gem 'binding_of_caller'
 
 
 
