@@ -4,30 +4,33 @@ class Book < ActiveRecord::Base
 
   mount_uploader :picture, PictureUploader
 
+  belongs_to :user
+
   before_save :goodreads_assist
 
   def goodreads_assist
     client = Goodreads.new
-    if :author.blank?
-      :author = client.book_by_isbn('search_isbn')[:author]
-    else
+
+    if !self.isbn.blank?
+      search_isbn = self.isbn
     end
 
-  #   if !:isbn.blank?
-  #     search_isbn = :isbn
-  #   elsif :picture.blank?
-  #     :picture = client.book_by_isbn('search_isbn')[:image_url]
-  #   elsif :title.blank?
-  #     :title = client.book_by_isbn('search_isbn')[:title]
-  #   elsif :author.blank?
-  #     :author = client.book_by_isbn('search_isbn')[:author]
-  #   elsif :published.blank?
-  #     :published = client.book_by_isbn('search_isbn')[:publication_year]
-  #   else 
-  #     raise 'Your before_create function shat itself.'
-  #   end 
-  end
+    if self.picture.blank?
+      self.current_path = client.book_by_isbn(search_isbn)[:image_url]
+    end
 
-  belongs_to :user
+    if self.title.blank?
+      self.title = client.book_by_isbn(search_isbn)[:title]
+    end 
+
+    if self.author.blank?
+      self.author = client.book_by_isbn(search_isbn)[:authors][:author][:name]
+    end
+
+    if self.published.blank?
+      self.published = client.book_by_isbn(search_isbn)[:publication_year]
+    end
+
+  end
 
 end

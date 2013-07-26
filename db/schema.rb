@@ -17,7 +17,7 @@ ActiveRecord::Schema.define(:version => 20130722233334) do
     t.string   "picture"
     t.string   "title"
     t.string   "author"
-    t.datetime "published"
+    t.string   "published"
     t.string   "isbn"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false

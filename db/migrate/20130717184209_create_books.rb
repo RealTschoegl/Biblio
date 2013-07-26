@@ -4,7 +4,7 @@ class CreateBooks < ActiveRecord::Migration
       t.string :picture
       t.string :title
       t.string :author
-      t.datetime :published
+      t.string :published
       t.string :isbn
       # t.reference :user
 

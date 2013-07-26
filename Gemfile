@@ -38,6 +38,7 @@ gem 'figaro'
 gem 'goodreads'
 gem 'awesome_print'
 gem 'binding_of_caller'
+gem 'debugger'
 
 
 
